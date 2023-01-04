@@ -151,3 +151,73 @@ function App() {
 }
 // export default App;
 
+//If we were to change the example above and only wanted to show text if the user was logged in(ifLoggedIn is true), this would be a great use case for the &&(and) operator.
+
+//If the first value(operand) in the conditional is true, the && operator displays the second operand. Otherwise it returns the first operand. And since it is falsy(is a value automatically converted to the boolean false by JavaScript), it is not rendered by JSX:
+
+import React from "react";
+
+function App() {
+    const isLoggedIn = true;
+    //If true: Welcome back!, if false: nothing
+    return<div>{isLoggedIn && "Welcome back!"}</div>;
+}
+// export default App;
+
+//Let's say that we want the reserve of what we're doing now: to only say "Who are you?" if isLoggedIn is false. if it's true, we won't show anything.
+
+//For this logic, we can use || (or) operator. It essentially works opposite to the && operator. If the first operand is true, the first(falsy) operand is returned. If the first operand is false, the 2nd operand is returned.
+
+import React from "react";
+
+function App() {
+    const LoggedIn = true;
+        //If true: nothing, if false: Who are you?
+        return <div>{isLoggedIn || "Who are you?"}</div>
+    }
+// export default App;
+
+//4.Three Array Methods:
+// .map(), .filter(), .reduce()
+
+// We can insert any valid expressions, including variables that contain primitive values(strings, numbers, booleans, and so on) as well as object properties that contain primitive values.
+
+import React from "react";
+
+function App() {
+    const name = "Reed";
+    const bio = {
+        age : 28,
+        isEnglishSpeaker: true
+    };
+    return (
+        <>
+        <h1>{name}</h1>
+        <h2>I am {bio.age} years old</h2>
+        <p>Speaks English: {bio.isEnglishSpeaker}</p>
+        </>
+    )
+}
+// export default App;
+
+// What if we have an array and we want to iterate over that array to show each array element within an individual JSX element?
+
+// For this, we can use the .map() method. It allows us to transform each element in our array in the way we specify with the inner function.
+
+// Note that it is especially concise when used in combination with an arrow function.
+
+import React from "react";
+
+function App() {
+    const programmers = ["Tejas, Yash, Saurabh"];
+    return (
+        <ul>
+            {programmers.map(programmer =><li>{programmer}</li>)}
+        </ul>
+    );
+}
+// export default App;
+
+// There are other falvours of the .map() method tha perform related tasks and are important to know because they can be chanined in combination with one another.
+
+// Why? Because .map(), like many array methods, returns a shallow copy of the array that it has iterated
