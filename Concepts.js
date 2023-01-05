@@ -221,3 +221,49 @@ function App() {
 // There are other falvours of the .map() method tha perform related tasks and are important to know because they can be chanined in combination with one another.
 
 // Why? Because .map(), like many array methods, returns a shallow copy of the array that it has iterated
+
+// .filter(), as its name indicates, allows us to filter certain elements out of our array.For example, if we wanted to remove all names of programmers that started with "J", we could do so with .filter():
+
+import React from "react";
+
+function App() {
+    const programmers = ["Tejas", "Yash", "Saurabh"];
+    return (
+        <ul>
+            {/*Return Tejas*/}
+            {programmers
+            .filter(programmer => !programmer.startsWith("J"))
+            .map(programmer => <li>{programmer}</li>)}
+        </ul>
+        );
+    }
+// export default App;
+
+// It's important to understand that both .map() and .filter() are just different variations of the .reduce() array method, which is capable of transforming array values into virtually any data type, even non-array values.
+// Here's .reduce() performimg the same operation as our .filter() method above:
+import React from "react";
+  
+  function App() {
+    const programmers = ["Tejas", "Shubham", "Mahekar"];
+
+    return (
+        <ul>
+            {/* Returns Tejas*/}
+            {programmers
+            .reduce((acc, programmer) =>{
+                if (!programmer.startsWith("T")) {
+                    return acc.concat(programmer);
+                } else{
+                    return acc;
+                }
+            }, [])
+            .map((programmer) =>(
+                <li>{programmer}</li>
+            ))}
+        </ul>
+    );
+  }
+
+// 5.Object Tricks: Property Shorthand, Destructuring, Spread Operator
+
+
