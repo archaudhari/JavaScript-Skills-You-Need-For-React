@@ -266,4 +266,52 @@ import React from "react";
 
 // 5.Object Tricks: Property Shorthand, Destructuring, Spread Operator
 
+// To add properties to an object as you create it, you name the property and its corrsponding value.
 
+// Object Property Shorthand:
+
+const name = "Tejas";
+
+const user = {
+    // instead of name : name, we can use...
+    name
+};
+
+console.log(user.name); //Tejas
+
+// The standard way to access properties from an object is using the dot notation.
+// An even more convenient approach, however, is object destructuring. It allows us to extract properties as individual variables of the same name from a given object.
+
+// It looks somewhat like you're writing an object in reverse,which is waht makes the process intuitive. It's much nicer to use than having to use the object name multiple times to access each time you want to grab a value from it.
+
+const user = {
+    name: "Tejas",
+    age: 28,
+    isEnglishSpeaker: true
+};
+// Dot property access 
+const name = user.name;
+const age = user.age;
+
+// Object destructuring 
+const { age, name, isEnglishSpeaker: knowsEnglish} = user;
+// Use ':' to rename a value as you destructure it
+
+console.log(knowsEnglish); //true
+
+// Instead of copying properties manually, you can spread all of an object's properties into another obejct (as you create it) using the object spread operator:
+const user = {
+    name: "Tejas",
+    age: 28,
+    isEnglishSpeaker:true
+};
+const firstUser = {
+    name: user.name,
+    age: user.age,
+    isEnglishSpeaker: user.isEnglishSpeaker
+};
+
+// Copy all of user's properties into seacondUser
+const seacondUser = {
+    ...user
+};
